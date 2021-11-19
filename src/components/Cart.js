@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import './Cart.css';
 
 class Cart extends Component {
   render() {
@@ -21,15 +22,13 @@ class Cart extends Component {
     const total = subTotal + tax || 0;
 
     return (
-      <>
-        <ul>
-          <h2>Cart</h2>
-          {cartItems}
-        </ul>
+      <div className="Cart">
+        <h2>Cart</h2>
+        <ul>{cartItems}</ul>
         <h3>Subtotal: {formatPrice(subTotal)}</h3>
         <h3>Tax: {formatPrice(tax)}</h3>
         <h3>Total: {formatPrice(total)}</h3>
-      </>
+      </div>
     );
   }
 }

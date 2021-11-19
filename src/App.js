@@ -58,15 +58,17 @@ class App extends Component {
 
   render() {
     return (
-      <>
+      <div className="App">
         <Shop
           products={products}
           addToCart={this.addToCart}
           formatPrice={formatPrice}
         />
-        <Cart cart={this.state.cart} formatPrice={formatPrice} />
-        <Checkout buyNow={this.buyNow} />
-      </>
+        <aside>
+          <Cart cart={this.state.cart} formatPrice={formatPrice} />
+          <Checkout buyNow={this.buyNow} />
+        </aside>
+      </div>
     );
   }
 }

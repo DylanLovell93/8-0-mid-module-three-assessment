@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import formData from '../data/formData';
+import './Checkout.css';
 
 class Checkout extends Component {
   render() {

@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import './Shop.css';
 
 class Shop extends Component {
   render() {
@@ -22,7 +23,7 @@ class Shop extends Component {
       </>
     );
     return (
-      <div>
+      <div className="Shop">
         <h2>{shopTitle}</h2>
         <div className="products">{productItems}</div>
       </div>
