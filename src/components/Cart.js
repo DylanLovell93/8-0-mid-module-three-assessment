@@ -3,14 +3,14 @@ import formatPrice from '../helpers/formatPrice';
 
 class Cart extends Component {
   render() {
-    const { cart } = this.props.state;
+    const { cart } = this.props;
     const cartItems = (
       <>
-        cart.map((item, index) => (
-        <li key={index}>
-          {item.name}: {formatPrice(item.price)}
-        </li>
-        ))
+        {cart.map((item, index) => (
+          <li key={index}>
+            {item.name}: {formatPrice(item.price)}
+          </li>
+        ))}
       </>
     );
 
@@ -27,9 +27,9 @@ class Cart extends Component {
           <h2>Cart</h2>
           {cartItems}
         </ul>
-        <p>Subtotal: {formatPrice(subTotal)}</p>
-        <p>Tax: {formatPrice(tax)}</p>
-        <p>Total: {formatPrice(total)}</p>
+        <h3>Subtotal: {formatPrice(subTotal)}</h3>
+        <h3>Tax: {formatPrice(tax)}</h3>
+        <h3>Total: {formatPrice(total)}</h3>
       </>
     );
   }
