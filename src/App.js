@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import './App.css';
 import formatPrice from './helpers/formatPrice';
-import products from './data/productData';
+import productData from './data/productData';
 import Shop from './components/Shop';
 import Cart from './components/Cart';
 import Checkout from './components/Checkout';
@@ -11,12 +11,12 @@ class App extends Component {
     super();
     this.state = {
       cart: [],
-      products: products,
+      products: [...productData],
     };
   }
 
   addToCart = (event) => {
-    const { cart } = this.state;
+    const { cart, products } = this.state;
     const item = products.find((element) => element.id === event.target.value);
     this.setState({
       cart: [...cart, item],
@@ -32,13 +32,9 @@ class App extends Component {
   };
 
   sortProducts = (event) => {
+    const { products } = this.state;
     const value = event.target.value;
     switch (value) {
-      case '':
-        this.setState({
-          products: products,
-        });
-        break;
       case 'lowHigh':
         this.setState({
           products: products.sort((a, b) => Number(a.price) - Number(b.price)),
@@ -59,6 +55,11 @@ class App extends Component {
           products: products.sort((a, b) => (a.name < b.name ? 1 : -1)),
         });
         break;
+      default: {
+        this.setState({
+          products: [...productData],
+        });
+      }
     }
   };
 
@@ -104,6 +105,7 @@ class App extends Component {
           products={this.state.products}
           addToCart={this.addToCart}
           formatPrice={formatPrice}
+          sortProducts={this.sortProducts}
         />
         <aside>
           <Cart

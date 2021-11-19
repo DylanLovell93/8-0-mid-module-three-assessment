@@ -1,7 +1,7 @@
 const sortData = [
   {
     title: '---',
-    value: '',
+    value: 'stock',
   },
   {
     title: 'Low to High (Ascending)',

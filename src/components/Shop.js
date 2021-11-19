@@ -1,9 +1,10 @@
 import { Component } from 'react';
 import './Shop.css';
+import Sort from './Sort';
 
 class Shop extends Component {
   render() {
-    const { products, addToCart, formatPrice } = this.props;
+    const { products, addToCart, formatPrice, sortProducts } = this.props;
     const shopTitle = 'My Garage Sale';
     const productItems = (
       <>
@@ -25,6 +26,7 @@ class Shop extends Component {
     return (
       <div className="Shop">
         <h2>{shopTitle}</h2>
+        <Sort sortProducts={sortProducts} />
         <div className="products">{productItems}</div>
       </div>
     );
