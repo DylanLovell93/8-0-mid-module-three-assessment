@@ -5,11 +5,13 @@ import products from './data/productData';
 import Shop from './components/Shop';
 import Cart from './components/Cart';
 import Checkout from './components/Checkout';
+
 class App extends Component {
   constructor() {
     super();
     this.state = {
       cart: [],
+      products: products,
     };
   }
 
@@ -27,6 +29,37 @@ class App extends Component {
     this.setState({
       cart: cart.filter((element, index) => index !== targetIndex),
     });
+  };
+
+  sortProducts = (event) => {
+    const value = event.target.value;
+    switch (value) {
+      case '':
+        this.setState({
+          products: products,
+        });
+        break;
+      case 'lowHigh':
+        this.setState({
+          products: products.sort((a, b) => Number(a.price) - Number(b.price)),
+        });
+        break;
+      case 'highLow':
+        this.setState({
+          products: products.sort((a, b) => Number(b.price) - Number(a.price)),
+        });
+        break;
+      case 'aZ':
+        this.setState({
+          products: products.sort((a, b) => (a.name > b.name ? 1 : -1)),
+        });
+        break;
+      case 'zA':
+        this.setState({
+          products: products.sort((a, b) => (a.name < b.name ? 1 : -1)),
+        });
+        break;
+    }
   };
 
   buyNow = (event) => {
@@ -68,7 +101,7 @@ class App extends Component {
     return (
       <div className="App">
         <Shop
-          products={products}
+          products={this.state.products}
           addToCart={this.addToCart}
           formatPrice={formatPrice}
         />
