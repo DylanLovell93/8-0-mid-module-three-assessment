@@ -1,9 +1,8 @@
 import { Component } from 'react';
-import formatPrice from '../helpers/formatPrice';
 
 class Shop extends Component {
   render() {
-    const { products, addToCart } = this.props;
+    const { products, addToCart, formatPrice } = this.props;
     const shopTitle = 'My Garage Sale';
     const productItems = (
       <>
@@ -12,7 +11,9 @@ class Shop extends Component {
             <h3>{item.name}</h3>
             <p>Price: {formatPrice(item.price)}</p>
             <p>
-              <button OnClick={addToCart}>Add To Cart</button>
+              <button onClick={addToCart} id={index}>
+                Add To Cart
+              </button>
             </p>
             <img src={item.img} />
             <p>{item.description}</p>

@@ -13,11 +13,23 @@ class App extends Component {
     };
   }
 
+  addToCart = (event) => {
+    const { cart } = this.state;
+    const item = products[Number(event.target.id)];
+    this.setState({
+      cart: [...cart, item],
+    });
+  };
+
   render() {
     return (
       <>
-        <Shop products={products} />
-        <Cart cart={this.state.cart} />
+        <Shop
+          products={products}
+          addToCart={this.addToCart}
+          formatPrice={formatPrice}
+        />
+        <Cart cart={this.state.cart} formatPrice={formatPrice} />
       </>
     );
   }

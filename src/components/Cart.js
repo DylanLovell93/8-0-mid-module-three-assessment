@@ -1,13 +1,12 @@
 import { Component } from 'react';
-import formatPrice from '../helpers/formatPrice';
 
 class Cart extends Component {
   render() {
-    const { cart } = this.props;
+    const { cart, formatPrice } = this.props;
     const cartItems = (
       <>
         {cart.map((item, index) => (
-          <li key={index}>
+          <li key={index} id={index}>
             {item.name}: {formatPrice(item.price)}
           </li>
         ))}
