@@ -25,8 +25,10 @@ class Shop extends Component {
     );
     return (
       <div className="Shop">
-        <h2>{shopTitle}</h2>
-        <Sort sortProducts={sortProducts} />
+        <div className="top">
+          <h2>{shopTitle}</h2>
+          <Sort sortProducts={sortProducts} />
+        </div>
         <div className="products">{productItems}</div>
       </div>
     );

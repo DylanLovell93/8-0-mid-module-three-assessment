@@ -11,7 +11,10 @@ class Sort extends Component {
     ));
     return (
       <form>
-        <select onChange={sortProducts}>{options}</select>
+        <label>
+          <h4>Sort Items</h4>
+          <select onChange={sortProducts}>{options}</select>
+        </label>
       </form>
     );
   }

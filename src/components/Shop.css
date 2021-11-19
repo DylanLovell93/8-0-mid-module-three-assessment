@@ -6,5 +6,17 @@
 
 .Shop .products {
   display: grid;
+  grid-gap: 2em;
   grid-template-columns: repeat(2, 1fr);
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top h4 {
+  padding: 0;
+  margin: 0;
 }
