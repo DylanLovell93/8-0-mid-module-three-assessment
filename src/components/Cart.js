@@ -3,11 +3,16 @@ import './Cart.css';
 
 class Cart extends Component {
   render() {
-    const { cart, formatPrice } = this.props;
+    const { cart, formatPrice, removeFromCart } = this.props;
     const cartItems = (
       <>
         {cart.map((item, index) => (
           <li key={index} id={item.id}>
+            <span>
+              <button value={index} onClick={removeFromCart}>
+                X
+              </button>
+            </span>
             {item.name}: {formatPrice(item.price)}
           </li>
         ))}

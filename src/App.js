@@ -21,6 +21,14 @@ class App extends Component {
     });
   };
 
+  removeFromCart = (event) => {
+    const { cart } = this.state;
+    const targetIndex = Number(event.target.value);
+    this.setState({
+      cart: cart.filter((element, index) => index !== targetIndex),
+    });
+  };
+
   buyNow = (event) => {
     event.preventDefault();
     const { cart } = this.state;
@@ -65,7 +73,11 @@ class App extends Component {
           formatPrice={formatPrice}
         />
         <aside>
-          <Cart cart={this.state.cart} formatPrice={formatPrice} />
+          <Cart
+            cart={this.state.cart}
+            formatPrice={formatPrice}
+            removeFromCart={this.removeFromCart}
+          />
           <Checkout buyNow={this.buyNow} />
         </aside>
       </div>
