@@ -1,10 +1,10 @@
 import { Component } from 'react';
 import './App.css';
-import formatPrice from './helpers/formatPrice.js';
-import products from './data/productData.js';
+import formatPrice from './helpers/formatPrice';
+import products from './data/productData';
 import Shop from './components/Shop';
 import Cart from './components/Cart';
-
+import Checkout from './components/Checkout';
 class App extends Component {
   constructor() {
     super();
@@ -30,6 +30,7 @@ class App extends Component {
           formatPrice={formatPrice}
         />
         <Cart cart={this.state.cart} formatPrice={formatPrice} />
+        <Checkout />
       </>
     );
   }

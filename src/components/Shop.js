@@ -15,7 +15,7 @@ class Shop extends Component {
                 Add To Cart
               </button>
             </p>
-            <img src={item.img} />
+            <img src={item.img} alt={'Image of ' + item.name} />
             <p>{item.description}</p>
           </div>
         ))}
