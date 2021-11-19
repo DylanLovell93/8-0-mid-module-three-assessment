@@ -15,10 +15,17 @@ class App extends Component {
 
   addToCart = (event) => {
     const { cart } = this.state;
-    const item = products.find((element) => element.id === event.target.id);
+    const item = products.find((element) => element.id === event.target.value);
     this.setState({
       cart: [...cart, item],
     });
+  };
+
+  buyNow = (event) => {
+    const { firstName, lastName, email, creditCard, zipCode } = event.target;
+    switch (true) {
+      case firstName:
+    }
   };
 
   render() {

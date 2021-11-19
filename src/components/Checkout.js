@@ -12,14 +12,18 @@ class Checkout extends Component {
             <label>
               {element.title}
               <br />
-              <input type={element.type}></input>
+              <input
+                type={element.type}
+                name={element.id}
+                id={element.id}
+              ></input>
             </label>
           </p>
         ))}
       </>
     );
     return (
-      <form onSubmit={buyNow}>
+      <form id={'checkout'} onSubmit={buyNow}>
         <h2> Checkout </h2>
         {formItems}
         {submitButton}
