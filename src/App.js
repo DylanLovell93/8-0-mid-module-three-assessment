@@ -22,9 +22,37 @@ class App extends Component {
   };
 
   buyNow = (event) => {
+    event.preventDefault();
+    const { cart } = this.state;
+    const total = formatPrice(
+      cart.reduce((acc, val) => Number(acc) + Number(val.price), 0) * 1.05
+    );
     const { firstName, lastName, email, creditCard, zipCode } = event.target;
     switch (true) {
-      case firstName:
+      case !firstName.value:
+        alert('Input is not valid, please provide a First Name');
+        break;
+      case !lastName.value:
+        alert('Input is not valid, please provide a Last Name');
+        break;
+      case !email.value:
+        alert('Input is not valid, please provide an Email');
+        break;
+      case !creditCard.value:
+        alert('Input is not valid, please provide a Credit Card Number');
+        break;
+      case !zipCode.value:
+        alert('Input is not valid, please provide a Zip Code');
+        break;
+      case creditCard.value.length !== 16:
+        alert('Input is not valid, Credit card number is not valid');
+        break;
+      case zipCode.value.length !== 5:
+        alert('Input is not valid, Zip code is not valid');
+        break;
+      default:
+        alert('Purchase complete! Your total is' + total);
+        break;
     }
   };
 
@@ -37,7 +65,7 @@ class App extends Component {
           formatPrice={formatPrice}
         />
         <Cart cart={this.state.cart} formatPrice={formatPrice} />
-        <Checkout />
+        <Checkout buyNow={this.buyNow} />
       </>
     );
   }
