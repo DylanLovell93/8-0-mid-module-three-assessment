@@ -6,7 +6,7 @@ class Cart extends Component {
     const cartItems = (
       <>
         {cart.map((item, index) => (
-          <li key={index} id={index}>
+          <li key={index} id={item.id}>
             {item.name}: {formatPrice(item.price)}
           </li>
         ))}

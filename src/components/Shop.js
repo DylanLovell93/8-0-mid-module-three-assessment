@@ -11,7 +11,7 @@ class Shop extends Component {
             <h3>{item.name}</h3>
             <p>Price: {formatPrice(item.price)}</p>
             <p>
-              <button onClick={addToCart} id={index}>
+              <button onClick={addToCart} id={item.id}>
                 Add To Cart
               </button>
             </p>

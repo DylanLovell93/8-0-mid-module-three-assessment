@@ -15,7 +15,7 @@ class App extends Component {
 
   addToCart = (event) => {
     const { cart } = this.state;
-    const item = products[Number(event.target.id)];
+    const item = products.find((element) => element.id === event.target.id);
     this.setState({
       cart: [...cart, item],
     });
